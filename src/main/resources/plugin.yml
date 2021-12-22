@@ -1,0 +1,9 @@
+name: StatusPlugin
+version: '${project.version}'
+main: org.redrhino.statusplugin.StatusPlugin
+api-version: 1.18
+commands:
+  status:
+    description: Sets your status
+    usage: /status <STATUS>
+    permission: status.status
