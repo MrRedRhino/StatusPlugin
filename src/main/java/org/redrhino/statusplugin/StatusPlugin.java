@@ -26,11 +26,11 @@ public final class StatusPlugin extends JavaPlugin implements Listener {
 
     public static void updateStatus(Player player, String newTeamPrefix) {
         Scoreboard sc = player.getScoreboard();
-        if (sc.getTeam("STATUS") == null) sc.registerNewTeam("STATUS");
+        if (sc.getTeam("STATUS_TEAM") == null) sc.registerNewTeam("STATUS_TEAM");
 
-        sc.getTeam("STATUS").addPlayer(player);
+        sc.getTeam("STATUS_TEAM").addPlayer(player);
 
-        sc.getTeam("STATUS").prefix(Component.text(
+        sc.getTeam("STATUS_TEAM").prefix(Component.text(
                 ChatColor.translateAlternateColorCodes('&', newTeamPrefix))
         );
     }
