@@ -25,17 +25,14 @@ public final class StatusPlugin extends JavaPlugin implements Listener {
     }
 
     public static void updateStatus(Player player, String newTeamPrefix) {
-        Scoreboard sc = Bukkit.getScoreboardManager().getMainScoreboard();
-        if (sc.getTeam("STATUS") == null) {
-            sc.registerNewTeam("STATUS");
-        }
+        Scoreboard sc = player.getScoreboard();
+        if (sc.getTeam("STATUS") == null) sc.registerNewTeam("STATUS");
 
         sc.getTeam("STATUS").addPlayer(player);
 
-        sc.getTeam("STATUS")
-                .prefix(Component.text(ChatColor.
-                        translateAlternateColorCodes('&', newTeamPrefix))
-                );
+        sc.getTeam("STATUS").prefix(Component.text(
+                ChatColor.translateAlternateColorCodes('&', newTeamPrefix))
+        );
     }
 
     public void loadConfig(FileConfiguration config) {
